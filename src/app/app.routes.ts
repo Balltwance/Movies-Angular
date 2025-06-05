@@ -3,24 +3,26 @@ import { MainLayoutComponent } from './layout/main-layout/main-layout.component'
 
 export const routes: Routes = [
 
-  {
+ {
     path: '',
-    redirectTo: 'home',
-    pathMatch: 'full',
+    redirectTo: 'login',
+    pathMatch: 'full'
   },
   {
-    path: '',
+    path: 'login',
+    loadComponent: () => import('./login/login.component').then(m => m.LoginComponent)
+  },
+  {
+    path: 'register',
+    loadComponent: () => import('./register/register.component').then(m => m.RegisterComponent)
+  },
+  {
+    path: 'main',
     component: MainLayoutComponent,
-    children: [
-      {
-        path: 'home',
-        loadComponent: () =>
-          import('./home/home.component').then((m) => m.HomeComponent),
-      },
-    ],
   },
+  
 
-    { path: '', redirectTo: '/login', pathMatch: 'full' },
-    { path: 'login', loadComponent: () => import('./login/login.component').then(m => m.LoginComponent) },
+
+  
 
 ];
