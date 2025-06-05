@@ -1,72 +1,93 @@
 <header
-  class="relative bg-gradient-to-b from-gray-900 to-gray-900 text-white py-3 px-8 flex items-center justify-between flex-row"
+  class="relative bg-gradient-to-b from-black to-stone-800 text-white py-3 px-8 flex items-center justify-between flex-row"
 >
-  <img
-    src="/assets/img/Netflix_2015_logo.svg"
-    alt="superhero database logo"
-    class="w-[6%]"
-  />
+  <div class="flex items-center">
+    <img
+      src="/assets/img/Netflix_2015_logo.svg"
+      alt="netflix logo"
+      class="w-[6%] mr-10"
+    />
+
+    <nav>
+      <ul class="flex gap-6 items-center">
+        <li>
+          <a routerLink="/home" class="hover:text-blue-200 transition"
+            >หน้าหลัก</a
+          >
+        </li>
+        <li>
+          <a routerLink="/about" class="hover:text-blue-200 transition"
+            >รายการทีวี</a
+          >
+        </li>
+        <li>
+          <a routerLink="/contact" class="hover:text-blue-200 transition"
+            >ภาพยนตร์</a
+          >
+        </li>
+        <li>
+          <a routerLink="/contact" class="hover:text-blue-200 transition"
+            >เกม</a
+          >
+        </li>
+        <li>
+          <a routerLink="/contact" class="hover:text-blue-200 transition"
+            >มาใหม่และกำลังฮิต</a
+          >
+        </li>
+        <li>
+          <a routerLink="/contact" class="hover:text-blue-200 transition"
+            >รายการของฉัน</a
+          >
+        </li>
+        <li>
+          <a routerLink="/contact" class="hover:text-blue-200 transition"
+            >เลือกดูตามภาษา</a
+          >
+        </li>
+      </ul>
+    </nav>
+  </div>
 
   <nav>
     <ul class="flex gap-6 items-center">
       <li>
-        <a routerLink="/home" class="hover:text-blue-200 transition"
-          >หน้าหลัก</a
-        >
+        <span class="material-symbols-outlined text-3xl"> search </span>
       </li>
       <li>
-        <a routerLink="/about" class="hover:text-blue-200 transition"
-          >รายการทีวี</a
-        >
+        <span class="material-symbols-outlined text-3xl"> notifications </span>
       </li>
-      <li>
-        <a routerLink="/contact" class="hover:text-blue-200 transition"
-          >ภาพยนตร์</a
-        >
-      </li>
-      <li>
-        <a routerLink="/contact" class="hover:text-blue-200 transition"
-          >รายการของฉัน</a
-        >
-      </li>
-      <li>
-        <a routerLink="/contact" class="hover:text-blue-200 transition"
-          >ดูอีกครั้ง</a
-        >
-      </li>
-
       <!-- User Dropdown -->
-      <!-- <li
+      <li
         class="relative z-50"
         (mouseenter)="showPopup = true"
         (mouseleave)="showPopup = false"
-      > -->
-      <!-- ปุ่มโปรไฟล์ -->
-      <!-- <div class="flex items-center gap-2 cursor-pointer bg-gray-900">
-          <span class="material-icons text-yellow-300 text-3xl"
-            >account_circle</span
-          >
-          <span>{{ username }}</span>
+      >
+        <!-- ปุ่มโปรไฟล์ -->
+        <div class="flex items-center gap-2 cursor-pointer bg-gray-900">
+          <img
+            src="/assets/img/Netflix_Profile.jpg"
+            alt="netflix logo"
+            class="w-10"
+          />
+          <span class="material-symbols-outlined"> arrow_drop_down </span>
         </div>
 
         @if (showPopup) {
-        
+
         <div
           class="absolute right-0 top-full mt-0 w-48 bg-white text-black rounded shadow-lg p-4 z-50"
         >
-          <p class="font-semibold">{{ username }}</p>
+          <p class="font-semibold">ball1234</p>
           <a routerLink="/profile" class="block mt-2 hover:text-blue-950"
             >โปรไฟล์ของฉัน</a
           >
-          <button
-            (click)="confirmLogout()"
-            class="mt-2 text-red-500 hover:underline hover:text-red-800"
-          >
+          <button class="mt-2 text-red-500 hover:underline hover:text-red-800">
             ออกจากระบบ
           </button>
-        </div> -->
-      <!-- } -->
-      <!-- </li> -->
+        </div>
+        }
+      </li>
     </ul>
   </nav>
 </header>
