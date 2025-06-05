@@ -26,6 +26,17 @@ export const routes: Routes = [
         loadComponent: () =>
           import('./home/home.component').then((m) => m.HomeComponent),
       },
+      {
+        path: 'tv-program',
+        loadComponent: () =>
+          import('./tv-program/tv-program.component').then(
+            (m) => m.TvProgramComponent
+          ),
+      },
+      {
+        path: '**',
+        redirectTo: 'home',
+      },
     ],
   },
 ];
