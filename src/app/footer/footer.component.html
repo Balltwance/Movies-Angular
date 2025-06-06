@@ -1,0 +1,19 @@
+<footer class="bg-stone-900">
+  <div class="container mx-auto max-w-7xl w-full py-20 px-6">
+    <div>
+      <p class="text-gray-300 mb-5 text-lg font-semibold">
+        หากมีข้อสงสัย โทรติดต่อ 1-800-012-674 (บริการฟรี)
+      </p>
+    </div>
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      @for (item of footerLinks; track $index) {
+      <a
+        [routerLink]="item.path"
+        class="text-gray-300 hover:text-blue-200 underline font-semibold text-lg"
+      >
+        {{ item.name }}
+      </a>
+      }
+    </div>
+  </div>
+</footer>
