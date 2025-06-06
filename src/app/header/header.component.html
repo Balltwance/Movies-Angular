@@ -60,53 +60,7 @@
       <li>
         <span class="material-icons-outlined text-3xl"> notifications </span>
       </li>
-      <!-- User Dropdown -->
-      <li
-        class="relative z-50"
-        (mouseenter)="showPopup = true"
-        (mouseleave)="showPopup = false"
-      >
-        <!-- ปุ่มโปรไฟล์ -->
-        <div class="flex items-center gap-2 cursor-pointer bg-stone-800">
-          <img
-            src="/assets/img/Netflix_Profile.jpg"
-            alt="netflix logo"
-            class="w-9 rounded"
-          />
-          <span class="material-icons"> arrow_drop_down </span>
-        </div>
 
-        @if (showPopup) {
-
-        <div
-          class="absolute right-0 top-full mt-0 w-48 bg-stone-900 text-white rounded shadow-lg p-4 z-50"
-        >
-          <div class="flex flex-row items-center">
-            <img
-              src="/assets/img/Netflix_Profile.jpg"
-              alt="netflix logo"
-              class="w-7 mr-2 rounded"
-            />
-            <p class="font-semibold">ball1234</p>
-          </div>
-          <a routerLink="/profile" class="block mt-2 hover:text-blue-950"
-            >จัดการโปรโฟล์</a
-          >
-          <a routerLink="/profile" class="block mt-2 hover:text-blue-950"
-            >จัดการโปรโฟล์</a
-          >
-          <a routerLink="/profile" class="block mt-2 hover:text-blue-950"
-            >จัดการโปรโฟล์</a
-          >
-          <a routerLink="/profile" class="block mt-2 hover:text-blue-950"
-            >จัดการโปรโฟล์</a
-          >
-          <button class="mt-2 text-red-500 hover:underline hover:text-red-800">
-            ออกจากระบบ
-          </button>
-        </div>
-        }
-      </li>
       <button
         matIconButton
         [matMenuTriggerFor]="menu"
@@ -120,18 +74,30 @@
         />
         <span class="material-icons"> arrow_drop_down </span>
       </button>
-      <mat-menu #menu="matMenu">
+      <mat-menu #menu="matMenu" class="!bg-stone-900 text-white">
         <button mat-menu-item>
-          <span class="material-icons-outlined"> edit </span>
+          <img
+            src="/assets/img/Netflix_Profile.jpg"
+            alt="netflix profile"
+            class="w-7 rounded inline-block mr-2"
+          />
+          <span>ball1254</span>
+        </button>
+        <button mat-menu-item>
+          <span class="material-icons-outlined mr-2 flex flex-row items-center">
+            edit
+          </span>
           <span>จัดการโปรโฟล์</span>
         </button>
         <button mat-menu-item>
-          <mat-icon>dialpad</mat-icon>
-          <span>จัดการโปรโฟล์</span>
+          <span class="material-icons-outlined mr-2">
+            sentiment_satisfied_alt
+          </span>
+          <span>ย้ามโปรไฟล์</span>
         </button>
         <button mat-menu-item>
           <mat-icon>dialpad</mat-icon>
-          <span>จัดการโปรโฟล์</span>
+          <span>บัญชี</span>
         </button>
       </mat-menu>
     </ul>

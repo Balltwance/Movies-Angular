@@ -10,6 +10,4 @@ import { MatButtonModule } from '@angular/material/button';
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
-export class HeaderComponent {
-  showPopup: boolean = false;
-}
+export class HeaderComponent {}
