@@ -107,6 +107,33 @@
         </div>
         }
       </li>
+      <button
+        matIconButton
+        [matMenuTriggerFor]="menu"
+        aria-label="Example icon-button with a menu"
+        class="flex flex-row items-center"
+      >
+        <img
+          src="/assets/img/Netflix_Profile.jpg"
+          alt="netflix logo"
+          class="w-9 mr-2 rounded"
+        />
+        <span class="material-icons"> arrow_drop_down </span>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <span class="material-icons-outlined"> edit </span>
+          <span>จัดการโปรโฟล์</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>dialpad</mat-icon>
+          <span>จัดการโปรโฟล์</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>dialpad</mat-icon>
+          <span>จัดการโปรโฟล์</span>
+        </button>
+      </mat-menu>
     </ul>
   </nav>
 </header>

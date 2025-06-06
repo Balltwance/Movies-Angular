@@ -1,6 +1,17 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.dev/guide/theming
+@use '@angular/material' as mat;
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import "~@angular/material/theming";
+* {
+  font-family: 'Noto Sans Thai', sans-serif;
+}
 
 html, body { height: 100%; }
 body { margin: 0; font-family: "Noto Sans Thai", sans-serif; }
@@ -10,4 +21,6 @@ body { margin: 0; font-family: "Noto Sans Thai", sans-serif; }
     --redlight: 357deg 100% 50%;
     --redlight_hover:357deg 100% 45.81%;
 }
+
+
 }
