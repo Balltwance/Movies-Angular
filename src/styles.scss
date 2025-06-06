@@ -4,3 +4,10 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: "Noto Sans Thai", sans-serif; }
+
+@layer base {
+   :root {
+    --redlight: 357deg 100% 50%;
+    --redlight_hover:357deg 100% 45.81%;
+}
+}
