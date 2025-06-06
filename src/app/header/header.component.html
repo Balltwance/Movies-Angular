@@ -67,11 +67,11 @@
         (mouseleave)="showPopup = false"
       >
         <!-- ปุ่มโปรไฟล์ -->
-        <div class="flex items-center gap-2 cursor-pointer bg-gray-900">
+        <div class="flex items-center gap-2 cursor-pointer bg-stone-800">
           <img
             src="/assets/img/Netflix_Profile.jpg"
             alt="netflix logo"
-            class="w-10"
+            class="w-9 rounded"
           />
           <span class="material-icons"> arrow_drop_down </span>
         </div>
@@ -79,11 +79,27 @@
         @if (showPopup) {
 
         <div
-          class="absolute right-0 top-full mt-0 w-48 bg-white text-black rounded shadow-lg p-4 z-50"
+          class="absolute right-0 top-full mt-0 w-48 bg-stone-900 text-white rounded shadow-lg p-4 z-50"
         >
-          <p class="font-semibold">ball1234</p>
+          <div class="flex flex-row items-center">
+            <img
+              src="/assets/img/Netflix_Profile.jpg"
+              alt="netflix logo"
+              class="w-7 mr-2 rounded"
+            />
+            <p class="font-semibold">ball1234</p>
+          </div>
           <a routerLink="/profile" class="block mt-2 hover:text-blue-950"
-            >โปรไฟล์ของฉัน</a
+            >จัดการโปรโฟล์</a
+          >
+          <a routerLink="/profile" class="block mt-2 hover:text-blue-950"
+            >จัดการโปรโฟล์</a
+          >
+          <a routerLink="/profile" class="block mt-2 hover:text-blue-950"
+            >จัดการโปรโฟล์</a
+          >
+          <a routerLink="/profile" class="block mt-2 hover:text-blue-950"
+            >จัดการโปรโฟล์</a
           >
           <button class="mt-2 text-red-500 hover:underline hover:text-red-800">
             ออกจากระบบ
