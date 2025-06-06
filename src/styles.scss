@@ -9,6 +9,7 @@
 @tailwind utilities;
 
 
+@import "~@angular/material/theming";
 * {
   font-family: 'Noto Sans Thai', sans-serif;
 }
@@ -20,7 +21,36 @@ body { margin: 0; font-family: "Noto Sans Thai", sans-serif; }
    :root {
     --redlight: 357deg 100% 50%;
     --redlight_hover:357deg 100% 45.81%;
+    mat-icon, mat-label {
+    display: inline-block !important;
+  }
+
+  mat-form-field {
+    /* รีเซ็ตสไตล์บางส่วน แต่ไม่ใช้ all: unset */
+    display: inline-block !important;
+  }
+
+  /* ปรับแก้การรีเซ็ตสไตล์ของ input, button, select, textarea */
+  input, button, select, textarea {
+    all: unset !important;
+    display: inline-block !important;
+  }
+
+.mat-form-field .mat-form-field-ripple,
+.mat-form-field .mat-form-field-ripple::before,
+.mat-form-field .mat-form-field-ripple::after {
+  display: none !important;
 }
+
+}
+
+
+  /* ไม่ลบสไตล์ของ mat-form-field, mat-icon, mat-label */
+  
+
+
+
+
 
 
 }
