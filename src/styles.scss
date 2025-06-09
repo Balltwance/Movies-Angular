@@ -9,10 +9,10 @@
 @tailwind utilities;
 
 
-@import "~@angular/material/theming";
-* {
-  font-family: 'Noto Sans Thai', sans-serif;
-}
+// @import "~@angular/material/theming";
+// * {
+//   font-family: 'Noto Sans Thai', sans-serif;
+// }
 
 html, body { height: 100%; }
 body { margin: 0; font-family: "Noto Sans Thai", sans-serif; }
@@ -54,3 +54,6 @@ body { margin: 0; font-family: "Noto Sans Thai", sans-serif; }
 
 
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

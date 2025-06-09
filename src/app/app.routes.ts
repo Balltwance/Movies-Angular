@@ -3,6 +3,12 @@ import { MainLayoutComponent } from './layout/main-layout/main-layout.component'
 
 export const routes: Routes = [
   {
+    path:'enter',
+    loadComponent: () =>
+      import('./enter/enter.component').then((m) => m.EnterComponent),
+
+  },
+  {
     path: '',
     redirectTo: 'login',
     pathMatch: 'full',
