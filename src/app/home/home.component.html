@@ -1,19 +1,48 @@
+<section class="relative h-screen w-full overflow-hidden">
+  <!-- ซ้อนวิดีโอกับรูป -->
+  <video
+    class="absolute inset-0 h-full w-full object-cover transition-opacity duration-300"
+    autoplay
+    muted
+    loop
+    playsinline
+    [ngStyle]="{ opacity: 1 - transitionProgress }"
+  >
+    <source
+      src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-devices.m4v"
+      type="video/mp4"
+    />
+    Your browser does not support the video tag.
+  </video>
 
-<video  class="h-screen w-full object-cover" autoplay muted loop>
-  <source src="https://videos.pexels.com/video-files/32445827/13837680_2560_1440_30fps.mp4" type="video/mp4"/>
-  Your browser does not support the video tag.
-</video>
+  <img
+    class="absolute inset-0 h-full w-full object-cover transition-opacity duration-300"
+    src="https://occ-0-8018-64.1.nflxso.net/dnm/api/v6/Z-WHgqd_TeJxSuha8aZ5WpyLcX8/AAAABdWejBzwyTY8b6TDhV8fS7YUtOfROMX5cuyF44z2RRD7rS4rV7NpmiFhSI76Xxh2RqNis3sfepSG2WCw4DLDMVSPM9TY3-ufOb6B.jpg?r=513"
+    alt="Static Image"
+    [ngStyle]="{ opacity: transitionProgress }"
+  />
 
-<div class="h-screen bg-white">
-  <div class="pt-[15%] px-24 absolute h-full text-white bg-gradient-to-r from-black">
-    <h1 class="text-7xl font-bold"></h1>
+  <!-- gradient overlay -->
+  <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent z-10"></div>
 
+  <!-- content -->
+  <div
+    class="absolute inset-0 flex flex-col md:flex-row items-center justify-center px-10 md:px-24 text-white transition-opacity duration-700 z-20"
+    [ngClass]="{ 'opacity-0': isScrolled, 'opacity-100': !isScrolled }"
+  >
+    <div>
+      <h1 class="text-4xl md:text-6xl font-bold mb-4">
+        ดูได้ทุกที่<br />ยกเลิกได้ทุกเวลา
+      </h1>
+      <p class="text-lg md:text-xl mb-6">
+        รับชมได้ไม่จำกัดบนอุปกรณ์ทุกประเภท
+      </p>
+      <app-button
+        class="flex items-center gap-2 bg-gray-400 text-white font-bold px-6 py-3 rounded-md hover:bg-gray-500 transition"
+      >
+        <span class="material-icons-outlined text-2xl">info</span>
+        ข้อมูลเพิ่มเติม
+      </app-button>
+    </div>
   </div>
-
-</div>
-
-
-<app-button [class]="'bg-gray-400 text-white font-bold'">
-  <span class="material-icons-outlined mr-4 text-5xl"> info </span
-  >ข้อมูลเพิ่มเติม</app-button
->
+</section>
