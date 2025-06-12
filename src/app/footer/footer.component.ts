@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 })
 export class FooterComponent {
   footerLinks = [
+    { name: 'ball117', path: '' },
     { name: 'คำถามที่พบบ่อย', path: '' },
     { name: 'ศูนย์ช่วยเหลือ', path: '' },
     { name: 'ข้อกำหนดการใช้งาน', path: '' },

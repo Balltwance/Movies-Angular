@@ -1,0 +1,28 @@
+<header
+  class="top-0 z-50 w-full h-20 px-[4%] flex items-center justify-between transition duration-300 text-white"
+  [ngClass]="{ 'bg-[#141414]': isScrolled, 'bg-transparent': !isScrolled }"
+>
+  <!-- Left: Logo & Navigation -->
+  <div class="flex items-center gap-8">
+    <h1 class="text-white font-extrabold text-[40px]">รายการทีวี</h1>
+    <button
+      [matMenuTriggerFor]="afterMenu"
+      class="border-[1px] border-white bg-black/80 flex flex-row hover:bg-black/10 text-xl font-bold py-1 px-2 justify-between"
+    >
+      <p class="mr-3">แนว</p>
+      <mat-icon>arrow_drop_down</mat-icon>
+    </button>
+    <mat-menu #afterMenu="matMenu" xPosition="after">
+      <button mat-menu-item>Item 1</button>
+      <button mat-menu-item>Item 2</button>
+    </mat-menu>
+  </div>
+
+  <!-- Right: Icons & Profile -->
+  <div class="flex">
+    <span class="material-icons-outlined border-[1px] px-4 text-lg">
+      notes
+    </span>
+    <span class="material-icons border-[1px] px-4 text-lg"> dashboard </span>
+  </div>
+</header>

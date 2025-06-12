@@ -1,0 +1,49 @@
+<div #swiperContainer class="swiper w-full" [ngClass]="classes">
+  <div class="swiper-wrapper">
+    @for (item of items; track trackByFn(item, $index)) {
+    <div class="swiper-slide">
+      <ng-container
+        *ngTemplateOutlet="template; context: { $implicit: item }"
+      ></ng-container>
+    </div>
+    }
+  </div>
+
+  <!-- Pagination -->
+  <div
+    class="swiper-pagination [&>.swiper-pagination-bullet]:bg-white [&>.swiper-pagination-bullet.swiper-pagination-bullet-active]:bg-primary"
+  ></div>
+</div>
+<!-- Navigation buttons -->
+<app-button
+  #btnPrev
+  class="btn-prev absolute !bg-transparent top-1/2 -translate-y-1/2 left-0 z-[1] hover:text-white hover:!bg-gradient-to-r from-stone-950/80 via-stone-950/0 to-transparent hover:!font-extrabold h-full transition duration-300 text-transparent !rounded-none"
+  impact="bold"
+  tone="white"
+  shape="pill"
+  size="icon"
+  shadow="medium"
+  (buttonClick)="slidePrev()"
+>
+  <span
+    class="material-icons-outlined text-4xl transition-all duration-200 hover:text-5xl"
+  >
+    arrow_back_ios
+  </span>
+</app-button>
+<app-button
+  #btnNext
+  class="btn-next absolute top-1/2 -translate-y-1/2 right-0 z-[1] hover:text-white hover:!bg-gradient-to-l from-stone-950/80 via-stone-950/0 to-transparent hover:!font-extrabold h-full !bg-transparent transition duration-300 text-transparent !rounded-none"
+  impact="bold"
+  tone="white"
+  shape="pill"
+  size="icon"
+  shadow="medium"
+  (buttonClick)="slideNext()"
+>
+  <span
+    class="material-icons-outlined text-4xl transition-all duration-200 hover:text-5xl"
+  >
+    arrow_forward_ios
+  </span>
+</app-button>

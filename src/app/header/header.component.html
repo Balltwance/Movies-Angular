@@ -1,105 +1,73 @@
 <header
-  class="relative bg-gradient-to-b from-black to-stone-800 text-white py-3 px-8 flex items-center justify-between flex-row"
+  [ngClass]="headerClass"
+  class="top-0 z-50 w-full h-[75px] px-[3%] flex items-center justify-between transition duration-300 text-white"
 >
-  <div class="flex items-center">
+  <!-- Left: Logo & Navigation -->
+  <div class="flex items-center gap-8">
     <img
       src="/assets/img/Netflix_2015_logo.svg"
-      alt="netflix logo"
-      class="w-[6%] mr-10"
+      alt="Netflix Logo"
+      class="h-6"
     />
-
-    <nav>
-      <ul class="flex gap-6 items-center">
-        <li>
-          <a
-            routerLink="/home"
-            class="hover:text-blue-200 transition"
-            [routerLinkActive]="['active']"
-            >หน้าหลัก</a
-          >
-        </li>
-        <li>
-          <a routerLink="/tv-program" class="hover:text-blue-200 transition"
-            >รายการทีวี</a
-          >
-        </li>
-        <li>
-          <a routerLink="/contact" class="hover:text-blue-200 transition"
-            >ภาพยนตร์</a
-          >
-        </li>
-        <li>
-          <a routerLink="/contact" class="hover:text-blue-200 transition"
-            >เกม</a
-          >
-        </li>
-        <li>
-          <a routerLink="/contact" class="hover:text-blue-200 transition"
-            >มาใหม่และกำลังฮิต</a
-          >
-        </li>
-        <li>
-          <a routerLink="/contact" class="hover:text-blue-200 transition"
-            >รายการของฉัน</a
-          >
-        </li>
-        <li>
-          <a routerLink="/contact" class="hover:text-blue-200 transition"
-            >เลือกดูตามภาษา</a
-          >
-        </li>
-      </ul>
-    </nav>
+    <ul class="flex gap-6 text-[16px] font-semibold">
+      <li><a routerLink="/home" routerLinkActive="active">หน้าหลัก</a></li>
+      <li><a routerLink="/tv-program">รายการทีวี</a></li>
+      <li><a routerLink="/movies">ภาพยนตร์</a></li>
+      <li><a routerLink="/games">เกม</a></li>
+      <li><a routerLink="/new-hot">มาใหม่และกำลังฮิต</a></li>
+      <li><a routerLink="/my-list">รายการของฉัน</a></li>
+      <li><a routerLink="/language">เลือกดูตามภาษา</a></li>
+    </ul>
   </div>
 
-  <nav>
-    <ul class="flex gap-6 items-center">
-      <li>
-        <span class="material-icons text-3xl"> search </span>
-      </li>
-      <li>
-        <span class="material-icons-outlined text-3xl"> notifications </span>
-      </li>
-
-      <button
-        matIconButton
-        [matMenuTriggerFor]="menu"
-        aria-label="Example icon-button with a menu"
-        class="flex flex-row items-center"
-      >
-        <img
-          src="/assets/img/Netflix_Profile.jpg"
-          alt="netflix logo"
-          class="w-9 mr-2 rounded"
-        />
-        <span class="material-icons"> arrow_drop_down </span>
+  <!-- Right: Icons & Profile -->
+  <div class="flex items-center gap-4">
+    <mat-icon>search</mat-icon>
+    <mat-icon>notifications</mat-icon>
+    <button
+      [matMenuTriggerFor]="menu"
+      aria-label="Open profile menu"
+      class="flex items-center"
+    >
+      <img
+        src="https://occ-0-8018-64.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABTfUlmnFRKf_OEUhru2aqso39FKxONTd5Dt_sWnNj5wAg4bbMBZ8sgZupTfnB9IQ8tmWcrzRiyZsCp1bLKb_n7VrnTw3_Ovw7Q.png?r=bd7"
+        alt="Profile"
+        class="w-8 h-8 rounded mr-2"
+      />
+      <mat-icon>arrow_drop_down</mat-icon>
+    </button>
+    <mat-menu
+      #menu="matMenu"
+      xPosition="before"
+      class="!bg-black/90 mt-5 w-[230px] border-[1px] border-stone-600 !rounded-none"
+    >
+      <button mat-menu-item class="!text-white !mb-4">
+        @for (profile of profile; track $index) {
+        <buttons mat-menu-item [routerLink]="profile.path"
+          ><div class="!text-white flex flex-row items-center gap-4 mb-2">
+            <img [src]="profile.src" alt="profile" class="w-9 rounded" />
+            <a class="hover:underline text-xs">{{ profile.name }}</a>
+          </div>
+        </buttons>
+        } @for (item of profilelinks; track $index) {
+        <button mat-menu-item [routerLink]="item.path" class="!min-h-0">
+          <div class="!text-white flex flex-row gap-3 items-center">
+            <span class="material-icons-outlined text-3xl text-stone-300">
+              {{ item.key }}
+            </span>
+            <a class="hover:underline text-sm">{{ item.name }}</a>
+          </div>
+        </button>
+        }
       </button>
-      <mat-menu #menu="matMenu" class="!bg-stone-900 text-white">
-        <button mat-menu-item>
-          <img
-            src="/assets/img/Netflix_Profile.jpg"
-            alt="netflix profile"
-            class="w-7 rounded inline-block mr-2"
-          />
-          <span>ball1254</span>
-        </button>
-        <button mat-menu-item>
-          <span class="material-icons-outlined mr-2 flex flex-row items-center">
-            edit
-          </span>
-          <span>จัดการโปรโฟล์</span>
-        </button>
-        <button mat-menu-item>
-          <span class="material-icons-outlined mr-2">
-            sentiment_satisfied_alt
-          </span>
-          <span>ย้ามโปรไฟล์</span>
-        </button>
-        <button mat-menu-item>
-          <mat-icon>dialpad</mat-icon>
-          <span>บัญชี</span>
-        </button>
-      </mat-menu>
-    </ul>
-  </nav>
+      <div
+        class="flex items-center justify-center border-t-[1px] border-stone-600 !h-10 !w-full pt-[8px]"
+      >
+        <a class="hover:underline text-sm text-white cursor-pointer"
+          >ออกจากระบบของ Netflix</a
+        >
+        >
+      </div>
+    </mat-menu>
+  </div>
 </header>

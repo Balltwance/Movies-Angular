@@ -1,0 +1,14 @@
+.swiper {
+  width: 100%;
+  height: auto;
+}
+
+.swiper-wrapper {
+  display: flex;
+  flex-direction: row; /* ✅ บังคับเป็นแนวนอน */
+}
+
+.swiper-slide {
+  width: auto; /* หรือกำหนด width ที่แน่นอน เช่น 200px */
+  flex-shrink: 0;
+}
