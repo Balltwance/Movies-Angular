@@ -1,13 +1,71 @@
-<div class="relative flex justify-center items-center h-screen w-full bg-cover bg-center before:absolute before:inset-0 before:bg-black/50" style="background-image: url('/assets/img/zjgs096khv591.jpg');">
-    
-    <nav class="absolute top-6 left-[12%] ">
-        <a href=""><img src="/assets/img/netflix 2025-logo-png-large.png" alt="Netflix Logo" class="h-10 "></a>
-    </nav>
+<div class="relative flex justify-center items-center h-screen w-full bg-cover bg-center before:absolute before:inset-0 before:bg-black/50" 
+     style=" background-image: url('/assets/img/TH-th-20250609-TRIFECTA-perspective_22cb85a8-86ab-498e-b646-df36039abc17_large.jpg');">
 
-    <div class="bg-black bg-opacity-45 p-8 z-10 rounded-lg w-96 text-left shadow-lg">
-       
-            <app-custom-input></app-custom-input>
-    </div>
-    
-  
+  <!-- Netflix Logo -->
+  <nav class="absolute top-6 left-10 sm:left-[20%] z-20">
+    <a href="#"><img src="/assets/img/netflix 2025-logo-png-large.png" alt="Netflix Logo" class="h-10"></a>
+  </nav>
+
+ <div class="relative z-10 flex justify-center items-center ">
+  <div class="bg-black bg-opacity-60 p-12 rounded-md shadow-md w-full ">
+<form class="space-y-2 w-full max-w-[350px] mx-auto text-black">
+  <!-- หัวเรื่อง -->
+  <h1 class="text-3xl font-bold  mb-5 text-white">เข้าสู่ระบบ</h1>
+  <app-custom-input label="อีเมลหรือหมายเลขโทรศัพท์มือถือ"
+  type="text"
+  labelClass="text-white text-sm !font-semibold"
+/>
+  <app-custom-input label="รหัสผ่าน"
+  type="text"
+  labelClass="text-white text-sm !font-semibold"
+/>
+
+
+  <!-- Email -->
+  <!-- ปุ่มเข้าสู่ระบบ -->
+  <div class="w-full max-w-[350px] ">
+    <app-button
+      [class]="' w-full bg-red-600 hover:bg-red-700 text-white   transition text-base'">
+      <p class="text-sm font-extrabold">เข้าสู่ระบบ</p>
+    </app-button>
+  </div>
+
+  <!-- ข้อความ "หรือ" -->
+  <div class="text-center text-gray-400 text-sm">หรือ</div>
+
+  <!-- ปุ่มใช้รหัสเข้าสู่ระบบ -->
+  <div class="w-full max-w-[350px]">
+    <app-button
+      [class]="'w-full !bg-gray-600/50 hover:!bg-gray-700/50 text-white py-2 rounded-md transition text-base'">
+      <p class="text-sm font-extrabold">ใช้รหัสเข้าสู่ระบบ</p>
+    </app-button>
+  </div>
+
+  <!-- ลิงก์ลืมรหัสผ่าน -->
+  <div class="text-center">
+    <a href="#" class="text-white text-sm font-semibold underline">หากลืมรหัสผ่าน</a>
+  </div>
+
+  <!-- Remember me -->
+  <div class="flex items-center mt-2 text-sm text-white">
+    <input type="checkbox" id="rememberMe"
+      class="h-4 w-4 mr-2 accent-white bg-transparent border border-white rounded-sm" />
+    <label for="rememberMe">จดจำข้อมูลของฉัน</label>
+  </div>
+
+  <!-- ลงทะเบียน -->
+  <div class="text-sm text-gray-400 mt-2">
+    หากยังไม่คุ้นกับ Netflix
+    <a href="#" class="text-white font-semibold hover:underline">ลงทะเบียนตอนนี้</a>
+  </div>
+
+  <!-- Google reCAPTCHA -->
+  <div class="text-sm text-gray-400 mt-2">
+    <p>หน้านี้ได้รับการป้องกันโดย Google reCAPTCHA เพื่อตรวจสอบว่าคุณไม่ใช่บ็อต</p>
+    <a href="#" class="text-blue-400 font-semibold underline">ดูข้อมูลเพิ่มเติม</a>
+  </div>
+</form>
 </div>
+</div>
+</div>
+<app-footer></app-footer>

@@ -1,19 +1,29 @@
-<footer class="bg-stone-900">
-  <div class="container mx-auto max-w-7xl w-full py-20 px-6">
-    <div>
-      <p class="text-gray-300 mb-5 text-lg font-semibold">
-        หากมีข้อสงสัย โทรติดต่อ 1-800-012-674 (บริการฟรี)
-      </p>
-    </div>
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+<footer class="bg-[#181818]">
+  <div class=" max-w-7xl w-full mx-auto py-10 px-6 text-gray-400 text-sm">
+    
+    <p class="mb-6">
+      หากมีข้อสงสัย โทรติดต่อ <a href="tel:123-456-789" class="font-extrabold">1-800-012-674</a> (บริการฟรี)
+    </p>
+
+    <!-- ลิงก์ -->
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-4">
       @for (item of footerLinks; track $index) {
-      <a
-        [routerLink]="item.path"
-        class="text-gray-300 hover:text-blue-200 underline font-semibold text-lg"
-      >
-        {{ item.name }}
-      </a>
+        <a
+          [routerLink]="item.path"
+          class=" underline hover:text-white transition-colors duration-200 font-semibold text-sm"
+        >
+          {{ item.name }}
+        </a>
       }
     </div>
+
+    <!-- ภาษา -->
+    <div class="mt-6">
+      <select class="bg-transparent border border-gray-500 px-3 py-1 rounded text-sm text-white">
+        <option value="th" class="text-black">ไทย</option>
+        <option value="en" class="text-black">English</option>
+      </select>
+    </div>
+
   </div>
 </footer>

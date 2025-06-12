@@ -1,16 +1,20 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, signal, Input } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import{MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { ButtonComponent } from "../button/button.component";
+import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-custom-input',
-  imports: [MatIconModule, MatFormFieldModule, MatInputModule, ButtonComponent],
+  imports: [CommonModule, MatIconModule, MatFormFieldModule, MatInputModule,],
   templateUrl: './custom-input.component.html',
   styleUrl: './custom-input.component.scss',
-  encapsulation: ViewEncapsulation.None,
 })
 export class CustomInputComponent {
+   @Input() label: string = '';
+  @Input() labelClass: string = '';
+  @Input() type: string = 'text';
 
+  public isFocused = signal(false);
 }

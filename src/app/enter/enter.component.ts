@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { ButtonComponent } from "../components/button/button.component";
 import { CommonModule } from '@angular/common';
-
+import { CustomInputComponent } from "../components/custom-input/custom-input.component";
 @Component({
   selector: 'app-enter',
-  imports: [ButtonComponent ,CommonModule],
+  imports: [ButtonComponent, CommonModule, CustomInputComponent],
   templateUrl: './enter.component.html',
   styleUrl: './enter.component.scss'
 })

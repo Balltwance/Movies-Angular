@@ -1,54 +1,25 @@
-<form class="space-y-4 w-full max-w-sm mx-auto text-black">
-  <h1 data-uia="login-title" class="text-3xl font-semibold mb-6 text-white">เข้าสู่ระบบ</h1>
-      
-      <mat-form-field class="w-full mb-4 [&_.mdc-text-field--filled]:!bg-transparent [&_.mdc-text-field]:!rounded-lg [&_.mdc-text-field]:!bg-gray-800/80 [&_.mdc-text-field]:backdrop-blur-sm">
-        <mat-label class="text-gray-400">อีเมลหรือหมายเลขโทรศัพท์</mat-label>
-        <input matInput class="!bg-gray-800 !text-white border-2 border-white rounded-md p-3 w-full focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 ">
-      </mat-form-field>
+<mat-form-field
+  class="w-full max-w-[350px]
+    [&_.mdc-text-field--filled]:!bg-transparent
+    [&_.mdc-text-field]:!rounded-md
+    [&_.mdc-text-field]:!border
+    [&_.mdc-text-field]:!border-gray-600
+    [&_.mdc-text-field]:w-full
+    [&_.mdc-line-ripple]:before:!hidden
+    [&_.mdc-line-ripple]:after:!hidden"
+  [class.input-active]="isFocused()">
 
-      <!-- Password input field -->
-      <mat-form-field class="w-full mb-4 [&_.mdc-text-field--filled]:!bg-transparent [&_.mdc-text-field]:!rounded-lg [&_.mdc-text-field]:!bg-gray-800/80 [&_.mdc-text-field]:backdrop-blur-sm">
-        <mat-label class="text-gray-400">รหัสผ่าน</mat-label>
-        <input matInput type="password" class="bg-gray-800 text-white border-2 border-white rounded-md p-3 w-full focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500">
-      </mat-form-field>
+  
+  <mat-label [ngClass]="labelClass">
+  {{ label }}
+</mat-label>
 
-    <div class="flex justify-center items-center space-x-4 mt-4">
-      <app-button class=" text-center w-full bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded font-sans">เข้าสู่ระบบ</app-button>
-    </div>
-       
-      <div class="text-center text-gray-400">หรือ</div>
-
-      <div class="flex justify-center items-center space-x-4 mt-4">
-        <app-button class="text-center w-full bg-[#737373]/60 hover:bg-[#737373]/40 text-white py-2 px-4 rounded font-sans transition">
-  ใช้รหัสสำหรับเข้าสู่ระบบ
-</app-button>
-
-</div>
-      
-      <div class="text-center">
-        <a href="#" class="text-white hover:underline">หากลืมรหัสผ่าน</a>
-      </div>
-
-      
-<!-- Remember me -->
-<div class="flex items-center mt-4 text-sm text-white">
-  <input
-    type="checkbox"
-    id="rememberMe"
-    class="h-4 w-4 mr-2 accent-white bg-transparent border border-white rounded-sm"
-  />
-  <label for="rememberMe">จดจำข้อมูลของฉัน</label>
-</div>
-
-<!-- Register link -->
-<div class="text-sm text-gray-400 mt-4">
-  หากยังไม่คุ้นกับ Netflix
-  <a href="#" class="text-white hover:underline">ลงทะเบียนตอนนี้</a>
-</div>
-
-  <div class="text-sm text-gray-400 font-sans px-13 ">
-    <p>หน้านี้ได้รับการป้องกันโดย Google reCAPTCHA เพื่อตรวจสอบว่าเป็นคุณไม่ใช่บ็อต</p>
-    <a href="#" class="text-blue-400 hover:underline">ข้อมูลเพิ่มเติม</a>
-    
-  </div>
-</form>
+  <input matInput
+    class="block w-full px-4 py-3 text-white
+           border-spacing-1 border-gray-700  
+           focus:border-[2px] focus:border-white
+           focus:outline-none focus:ring-0
+           placeholder:text-gray-400 transition-all duration-150"
+    (focus)="isFocused.set(true)"
+    (blur)="isFocused.set(false)" />
+</mat-form-field>

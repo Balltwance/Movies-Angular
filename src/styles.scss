@@ -1,73 +1,95 @@
-
 // Custom Theming for Angular Material
 // For more information: https://material.angular.dev/guide/theming
-@use '@angular/material' as mat;
-
+@use "@angular/material" as mat;
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 
 // @import "~@angular/material/theming";
 // * {
 //   font-family: 'Noto Sans Thai', sans-serif;
 // }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: "Noto Sans Thai", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: "Noto Sans Thai", sans-serif;
+}
 
 @layer base {
-   :root {
+  :root {
     --redlight: 357deg 100% 50%;
-    --redlight_hover:357deg 100% 45.81%;
-    mat-icon, mat-label {
-    display: inline-block !important;
+    --redlight_hover: 357deg 100% 45.81%;
+    mat-icon,
+    mat-label {
+      display: inline-block !important;
+    }
+
+    mat-form-field {
+      /* รีเซ็ตสไตล์บางส่วน แต่ไม่ใช้ all: unset */
+      display: inline-block !important;
+    }
+
+    /* ปรับแก้การรีเซ็ตสไตล์ของ input, button, select, textarea */
+    // input,
+    // button,
+    // select,
+    // textarea {
+    //   all: unset !important;
+    //   display: inline-block !important;
+    // }
+
+    .mat-form-field .mat-form-field-ripple,
+    .mat-form-field .mat-form-field-ripple::before,
+    .mat-form-field .mat-form-field-ripple::after {
+      display: none !important;
+    }
+
+    /* Autofill custom background */
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    input:-webkit-autofill:active {
+      -webkit-box-shadow: 0 0 0px 1000px inset !important;
+      -webkit-text-fill-color: white !important;
+      transition: background-color 5000s ease-in-out 0s;
+    }
+
+    input {
+      color: white !important;
+      caret-color: white;
+    }
+
+    .input-active {
+      .mat-mdc-text-field-wrapper {
+        overflow: unset !important;
+
+        &:before {
+        position: absolute;
+        content: "";
+       top: -4px;
+       left: -4px;
+       right: -4px;
+       bottom: -4px;
+       border: 2px solid #fff !important;
+       border-radius: 0.5rem;
+      }
+      }
+    }
   }
-
-  mat-form-field {
-    /* รีเซ็ตสไตล์บางส่วน แต่ไม่ใช้ all: unset */
-    display: inline-block !important;
-  }
-
-  /* ปรับแก้การรีเซ็ตสไตล์ของ input, button, select, textarea */
-  input, button, select, textarea {
-    all: unset !important;
-    display: inline-block !important;
-  }
-
-.mat-form-field .mat-form-field-ripple,
-.mat-form-field .mat-form-field-ripple::before,
-.mat-form-field .mat-form-field-ripple::after {
-  display: none !important;
-}
-
-/* Autofill custom background */
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0px 1000px inset !important;
-  -webkit-text-fill-color: white !important;
-  transition: background-color 5000s ease-in-out 0s;
-}
-
-input {
- color: white !important;
-  caret-color: white;
-}
-}
-
 
   /* ไม่ลบสไตล์ของ mat-form-field, mat-icon, mat-label */
-  
-
-
-
-
-
-
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Noto Sans Thai", sans-serif;
+}
