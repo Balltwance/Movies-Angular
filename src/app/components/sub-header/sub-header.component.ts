@@ -1,48 +1,22 @@
-import { Component, HostListener, Input } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { Component, HostListener } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
-import { CommonModule } from '@angular/common';
-
 @Component({
-  selector: 'app-header',
-  imports: [
-    RouterModule,
-    MatButtonModule,
-    MatMenuModule,
-    MatIconModule,
-    CommonModule,
-  ],
-  templateUrl: './header.component.html',
-  styleUrl: './header.component.scss',
+  selector: 'app-sub-header',
+  imports: [MatButtonModule, MatMenuModule, MatIconModule, CommonModule],
+  templateUrl: './sub-header.component.html',
+  styleUrl: './sub-header.component.scss',
 })
-export class HeaderComponent {
+export class SubHeaderComponent {
   isScrolled = false;
   transitionProgress = 0; // ค่าระหว่าง 0 ถึง 1
-  @Input() headerStyle: 'home' | 'tv' | 'default' = 'default';
+
   @HostListener('window:scroll', [])
   onWindowScroll() {
     this.isScrolled = window.scrollY > 100;
   }
-
-  @Input() changeHeader = false;
-
-  get headerClass(): string {
-    if (this.isScrolled) {
-      return 'bg-[#141414]';
-    }
-
-    switch (this.headerStyle) {
-      case 'home':
-        return 'bg-gradient-to-b from-black'; // หน้า home
-      case 'tv':
-        return 'bg-[#141414]'; // หน้า tv-program
-      default:
-        return 'bg-stone-950'; // หน้าอื่น
-    }
-  }
-
   profile = [
     {
       name: 'k115',
@@ -73,4 +47,14 @@ export class HeaderComponent {
     { name: 'บัญชี', path: '', key: 'account_circle' },
     { name: 'ศูนย์ช่วยเหลือ', path: '', key: 'help_outline' },
   ];
+
+  visible = true;
+
+  hide() {
+    this.visible = false;
+  }
+
+  show() {
+    this.visible = true;
+  }
 }

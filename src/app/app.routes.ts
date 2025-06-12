@@ -3,10 +3,9 @@ import { MainLayoutComponent } from './layout/main-layout/main-layout.component'
 
 export const routes: Routes = [
   {
-    path:'enter',
+    path: 'enter',
     loadComponent: () =>
       import('./enter/enter.component').then((m) => m.EnterComponent),
-
   },
   {
     path: '',
@@ -31,6 +30,7 @@ export const routes: Routes = [
         path: 'home',
         loadComponent: () =>
           import('./home/home.component').then((m) => m.HomeComponent),
+        data: { hideSubHeader: true },
       },
       {
         path: 'tv-program',
@@ -38,6 +38,7 @@ export const routes: Routes = [
           import('./tv-program/tv-program.component').then(
             (m) => m.TvProgramComponent
           ),
+        data: { hideSubHeader: false },
       },
       {
         path: '**',

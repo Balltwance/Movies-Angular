@@ -14,7 +14,8 @@
 //   font-family: 'Noto Sans Thai', sans-serif;
 // }
 
-html, body { height: 100%; }
+html, body { height: 100%;
+ }
 body { margin: 0; font-family: "Noto Sans Thai", sans-serif; }
 
 @layer base {
@@ -31,16 +32,14 @@ body { margin: 0; font-family: "Noto Sans Thai", sans-serif; }
   }
 
   /* ปรับแก้การรีเซ็ตสไตล์ของ input, button, select, textarea */
-  input, button, select, textarea {
-    all: unset !important;
-    display: inline-block !important;
-  }
+  // input,
+  //   button,
+  //   select,
+  //   textarea {
+  //     all: unset !important;
+  //     display: inline-block !important;
+  //   }
 
-.mat-form-field .mat-form-field-ripple,
-.mat-form-field .mat-form-field-ripple::before,
-.mat-form-field .mat-form-field-ripple::after {
-  display: none !important;
-}
 
 /* Autofill custom background */
 input:-webkit-autofill,
@@ -59,15 +58,11 @@ input {
 }
 
 
-  /* ไม่ลบสไตล์ของ mat-form-field, mat-icon, mat-label */
-  
-
-
-
-
-
-
+*{
+  font-family: "Noto Sans Thai";
+  box-sizing: border-box;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+// @import 'swiper/swiper-bundle.min.css';
+}
+
