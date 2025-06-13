@@ -17,6 +17,11 @@ export class HomeComponent implements OnInit {
   onWindowScroll() {
     this.isScrolled = window.scrollY > 100;
   }
+  public sections = [
+    { title: 'ที่ Netflix เท่านั้น' },
+    { title: 'กำลังฮิต' },
+    { title: 'มาใหม่ล่าสุด' },
+  ];
 
   // ngOnInit(): void {
   //   const duration = 2000; // 2 วินาที
