@@ -8,13 +8,12 @@
     [&_.mdc-line-ripple]:before:!hidden
     [&_.mdc-line-ripple]:after:!hidden"
   [class.input-active]="isFocused()">
-
-  <mat-label [ngClass]="labelClass">
+  <mat-label [ngClass]="labelClass" >
   {{ label }}
 </mat-label>
 
   <input matInput
-    class="block w-full px-4 py-3 text-white
+    class="block w-full px-4 py-3 text-white font-semibold
            border-spacing-1 border-gray-700  
            focus:border-[2px] focus:border-white
            focus:outline-none focus:ring-0

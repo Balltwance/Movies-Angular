@@ -12,8 +12,8 @@ import { CommonModule } from '@angular/common';
   styleUrl: './custom-input.component.scss',
 })
 export class CustomInputComponent {
-   @Input() label: string = '';
-  @Input() labelClass: string = '';
+  @Input() label: string = '';
+  @Input() labelClass = 'text-white text-sm font-semibold';
   @Input() type: string = 'text';
 
   public isFocused = signal(false);

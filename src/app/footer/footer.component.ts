@@ -1,12 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-footer',
-  imports: [RouterModule],
+  imports: [RouterModule, CommonModule],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss',
 })
 export class FooterComponent {
+  @Input() public class: string | string[] = '';
   footerLinks = [
     { name: 'ball117', path: '' },
     { name: 'คำถามที่พบบ่อย', path: '' },

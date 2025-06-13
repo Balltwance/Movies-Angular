@@ -1,1 +1,35 @@
-<p>register works!</p>
+
+  <body class="flex flex-col min-h-screen bg-white text-black">
+
+    <header class="flex justify-between items-center bg-white px-9 py-3 border-b border-gray-200">
+      <img src="/assets/img/netflix 2025-logo-png-large.png" alt="Netflix" class="h-9" />
+      <button class="px-4 py-2 text-[16px] font-semibold text-black/90 hover:underline">
+        เข้าสู่ระบบ
+      </button>
+    </header>
+
+    <main class="flex-1 flex items-center justify-center px-4 bg-white text-black">
+      <div class="flex flex-col items-center text-center max-w-md w-full">
+        <img src="/assets/img/Devices.png" alt="devices" class="w-[260px] mb-6" />
+
+        <p class="text-xs text-slate-800 font-medium mb-1">ขั้นตอน 1 จาก 3</p>
+
+        <h1 class="text-3xl font-extrabold leading-tight mb-4">
+          ตั้งค่าบัญชีของคุณให้<br />เสร็จสมบูรณ์
+        </h1>
+
+        <p class="text-sm text-gray-700 leading-6 mb-6">
+          Netflix ปรับแต่งมาเพื่อคุณโดยเฉพาะ<br />
+          สร้างรหัสผ่านเพื่อเริ่มรับชม Netflix
+        </p>
+
+        <app-button [class]="'bg-[#e50914] hover:bg-[#f6121d] text-white font-bold text-base w-56 py-4 rounded'">
+          ถัดไป
+        </app-button>
+      </div>
+    </main>
+
+    <app-footer [class]="'bg-white'"></app-footer>
+
+  </body>
+
