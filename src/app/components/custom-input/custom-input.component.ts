@@ -15,6 +15,8 @@ export class CustomInputComponent {
   @Input() label: string = '';
   @Input() labelClass = 'text-white text-sm font-semibold';
   @Input() type: string = 'text';
+  @Input() widthClass: string = '';
+
 
   public isFocused = signal(false);
 }

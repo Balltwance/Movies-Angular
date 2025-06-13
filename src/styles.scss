@@ -53,7 +53,7 @@ input:-webkit-autofill:active {
 
 input {
  color: white !important;
-  caret-color: white;
+  caret-color: white !important;
 }
 }
 
@@ -66,3 +66,18 @@ input {
 // @import 'swiper/swiper-bundle.min.css';
 }
 
+.input-active {
+      .mat-mdc-text-field-wrapper {
+        overflow: unset !important;
+        &:before {
+        position: absolute;
+        content: "";
+       top: -4px;
+       left: -4px;
+       right: -4px;
+       bottom: -4px;
+       border: 2px solid #fff !important;
+       border-radius: 0.5rem;
+      }
+    }
+  }

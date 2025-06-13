@@ -1,23 +1,24 @@
 <mat-form-field
+ [ngClass]="widthClass"
   class="w-full max-w-[350px]
     [&_.mdc-text-field--filled]:!bg-transparent
     [&_.mdc-text-field]:!rounded-md
     [&_.mdc-text-field]:!border
     [&_.mdc-text-field]:!border-gray-600
-    [&_.mdc-text-field]:w-full
+    [&_.mdc-text-field]:w-full  
     [&_.mdc-line-ripple]:before:!hidden
     [&_.mdc-line-ripple]:after:!hidden"
   [class.input-active]="isFocused()">
   <mat-label [ngClass]="labelClass" >
   {{ label }}
 </mat-label>
-
+ 
   <input matInput
-    class="block w-full px-4 py-3 text-white font-semibold
-           border-spacing-1 border-gray-700  
+    class="block w-full px-4 py-3 text-white
+           border-spacing-2 border-gray-700  
            focus:border-[2px] focus:border-white
            focus:outline-none focus:ring-0
-           placeholder:text-gray-400 transition-all duration-150"
+           placeholder:text-gray-400 transition-all duration-150 "
     (focus)="isFocused.set(true)"
     (blur)="isFocused.set(false)" />
 </mat-form-field>
