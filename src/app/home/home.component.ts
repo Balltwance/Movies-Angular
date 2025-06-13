@@ -1,4 +1,11 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  HostListener,
+  OnInit,
+  signal,
+  ViewChild,
+} from '@angular/core';
 import { CommonModule } from '@angular/common'; //
 import { SwiperComponent } from '../components/swiper/swiper.component';
 import { ButtonComponent } from '../components/button/button.component';
@@ -13,6 +20,9 @@ import { ButtonComponent } from '../components/button/button.component';
 export class HomeComponent implements OnInit {
   isScrolled = false;
   transitionProgress = 0; // ค่าระหว่าง 0 ถึง 1
+  showContent = signal(true);
+  isFading = signal(false);
+  isScaled = signal(false);
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
@@ -23,21 +33,36 @@ export class HomeComponent implements OnInit {
     { title: 'ใหม่ล่าสุด' },
     { title: 'ใครๆก็ชอบ' },
   ];
+  constructor() {
+    // เริ่ม fade-out ที่ 5.5 วิ
+    setTimeout(() => this.isFading.set(true), 5000);
+    setTimeout(() => {
+      this.isScaled.set(true);
+    }, 5000);
+    // หายจาก DOM ที่ 6 วิ
+    setTimeout(() => this.showContent.set(false), 6000);
+  }
 
-  // ngOnInit(): void {
-  //   const duration = 2000; // 2 วินาที
-  //   const interval = 50; // ปรับทุก 50ms
-  //   let elapsed = 0;
-
-  //   const fadeInterval = setInterval(() => {
-  //     elapsed += interval;
-  //     this.transitionProgress = Math.min(elapsed / duration, 1);
-
-  //     if (this.transitionProgress === 1) {
-  //       clearInterval(fadeInterval);
-  //     }
-  //   }, interval);
-  // }
+  public movies = [
+    {
+      title: '/assets/img/unicorntitle.webp',
+      url: 'https://occ-0-8018-64.1.nflxso.net/so/soa7/272/1915307573565347840.mp4?v=1&e=1749837177&t=xSksRxUqqlygdFJDGR2dxyanSNY',
+      content:
+        'สันติ นักลงทุนไฟแรงใฝฝันที่ตะประสบความสำเร็จแบบถลมทลายด้วยใอเดียการทำธุกิจขนส่งพัสดุที่จะเขย่าวงการแต่บรรดาคู่แข่งก็พยายามทำทุกวิถีทางเพื่อครองตำแหน่งเจ้าตลาด',
+    },
+    {
+      title: '/assets/img/viking.webp',
+      url: 'https://occ-0-8018-64.1.nflxso.net/so/soa2/609/1801528549594927616.mp4?v=1&e=1749848862&t=_JioWP64OrhGDFo-BNCWZfuGevU',
+      content:
+        'เรื่องราวของชาวไวกิ้งที่มีความเชื่อว่าโลกนี้มี 9 โลก และโลกมนุษย์คือ Midgard ที่อยู่ตรงกลางของจักรวาล และมีอีก 8 โลกที่ล้อมรอบอยู่รอบๆ ซึ่งแต่ละโลกก็มีความเป็นเอกลักษณ์และอันตรายที่แตกต่างกันไป',
+    },
+    {
+      title: '/assets/img/sweet.webp',
+      url: 'https://occ-0-8018-64.1.nflxso.net/so/soa6/420/baf6ff6aa263822191e2d01669a9a900.mp4?v=1&e=1749848455&t=sgp6hgRFQ9CN0EZHExfEA9uiPc4',
+      content:
+        'หลังจากที่ไวรัสเอชห้าจีเก้าแพร่ระบาด เผ่าพันธุ์มนุษย์ก็ถูกกวาดล้างไปเกือบหมดเหลือไว้เพียงแค่คนที่แข็งแรงและสามารถอยู่รอดภายใต้ไวรัสได้ แต่ที่น่าอัศจรรย์ก็คือ มีกลุ่ม ไฮบริด เกิดขึ้นมาหรือที่เรียกกันว่า มนุษย์ครึ่งคนครึ่งสัตว์ มนุษย์บางคนที่อยู่รอดก็แบ่งออกเป็น 2 ฝ่าย ฝ่ายที่ตามล่าไฮบริดเพราะคนพวกนี้เชื่อ',
+    },
+  ];
   public slides = [
     'Slide #1',
     'Slide #2',
@@ -73,9 +98,19 @@ export class HomeComponent implements OnInit {
   ];
   public imgpaths: string[] = [];
   config: any;
-  ngOnInit(): void {
-    const repeatCount = 3; // ✅ จำนวนรอบที่ต้องการให้ซ้ำ (เช่น 3 รอบ = 8×3 = 24 รูป)
 
+  // public selectedMovie: { title: string; url: string } | null = null;
+  @ViewChild('bgVideo') bgVideoRef!: ElementRef<HTMLVideoElement>;
+  public selectedMovie: {
+    title: string;
+    url: string;
+    content: string;
+  } | null = null;
+
+  ngOnInit(): void {
+    this.selectRandomMovie();
+
+    const repeatCount = 3;
     this.imgpaths = Array.from({ length: repeatCount }).flatMap(
       () => this.imgpathsOriginal
     );
@@ -83,6 +118,23 @@ export class HomeComponent implements OnInit {
     this.config = this.getSwiperConfig(this.imgpaths.length);
   }
 
+  // สุ่ม 1 รายการจาก movies[]
+  selectRandomMovie() {
+    const index = Math.floor(Math.random() * this.movies.length);
+    this.selectedMovie = this.movies[index];
+  }
+  ngAfterViewInit(): void {
+    // ✅ พยายามสั่งเล่นเมื่อ DOM พร้อม
+    if (this.bgVideoRef?.nativeElement) {
+      const video = this.bgVideoRef.nativeElement;
+
+      // สำหรับ autoplay policies
+      video.muted = true;
+      video.play().catch((err) => {
+        console.warn('Autoplay failed:', err);
+      });
+    }
+  }
   getSwiperConfig(length: number) {
     const slidesPerView = 6.5;
     let slidesPerGroup = 6;

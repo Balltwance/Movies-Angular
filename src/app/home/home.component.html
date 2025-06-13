@@ -5,26 +5,36 @@
   <div>
     <div class="w-full h-[200px]"></div>
     <div class="flex flex-row justify-between relative">
-      <div class="w-[700px] pl-16 pb-16">
+      <div class="w-[900px] pl-16 pb-16">
         <div>
+          @if (selectedMovie) {
           <img
-            src="/assets/img/unicorntitle.webp"
+            [src]="selectedMovie.title"
             alt="title"
-            class="w-[600px] mb-10"
+            class="w-[900px] mb-10 transition-transform duration-700 ease-in-out origin-bottom-left scale-75"
+            [class.scale-100]="!isScaled()"
+            [class.scale-75]="isScaled()"
           />
 
-          <p class="text-white text-2xl font-medium mb-10">
-            สันติ นักลงทุนไฟแรงใฝฝันที่ตะประสบความสำเร็จแบบถลมทลย
-            ด้วยใอเดียการทำธุกิจขนส่งพัสดุที่จะเขย่าวงการ
-            แต่บรรดาคู่แข่งก็พยายามทำทุกวิถีทางเพื่อครองตำแหน่งเจ้าตลาด
+          } @if (showContent()) {
+
+          <p
+            class="text-white text-2xl font-medium mb-10 transition-all duration-700 ease-in-out"
+            [class.opacity-100]="!isFading()"
+            [class.translate-y-0]="!isFading()"
+            [class.opacity-0]="isFading()"
+            [class.translate-x-4]="isFading()"
+          >
+            {{ selectedMovie?.content }}
           </p>
+          } @else {}
           <div class="flex flex-row gap-5">
             <app-button
               [class]="
-                'bg-white py-0 !pl-4 pr-8 hover:!bg-gray-200 !text-black flex flex-row drop-shadow-[0_35px_35px_rgba(20,1,0,0.25)] font-bold '
+                'bg-white py-0 !pl-4 pr-8  hover:!bg-gray-200 !text-black flex flex-row drop-shadow-[0_35px_35px_rgba(20,1,0,0.25)] font-bold '
               "
             >
-              <span class="material-icons-round text-6xl"> play_arrow </span>
+              <span class="material-icons-round text-5xl"> play_arrow </span>
               <p class="text-2xl font-extrabold">เล่น</p>
             </app-button>
 
@@ -55,7 +65,7 @@
       </div>
     </div>
     <div
-      class="bg-gradient-to-t from-stone-950/100 via-stone-950/50 to-transparent"
+      class="bg-gradient-to-t from-[#141414]/100 via-[#141414]/70 to-transparent"
     >
       <div class="pl-16 h-12 px-0 pt-0">
         <h1 class="text-gray-300 font-extrabold text-3xl">
@@ -73,9 +83,9 @@
       </app-swiper>
     </div>
 
-    <div class="px-0 bg-stone-950 z-30 pt-8">
+    <div class="px-0 bg-[#141414] z-30 pt-8">
       @for (section of sections; track section.title) {
-      <div class="py-8">
+      <div class="py-10">
         <div class="h-12 pl-16">
           <h1 class="text-gray-300 font-extrabold text-3xl">
             {{ section.title }}
@@ -100,7 +110,9 @@
 <div
   class="absolute inset-0 bg-gradient-to-r from-black/5 via-black/5 to-transparent z-30"
 ></div>
+@if (selectedMovie) {
 <video
+  #bgVideo
   class="absolute inset-0 h-[110vh] w-full object-cover transition-opacity duration-300 z-20"
   autoplay
   muted
@@ -108,12 +120,10 @@
   playsinline
   [ngStyle]="{ opacity: 1 - transitionProgress }"
 >
-  <source
-    src="https://occ-0-8018-64.1.nflxso.net/so/soa7/272/1915307573565347840.mp4?v=1&e=1749837177&t=xSksRxUqqlygdFJDGR2dxyanSNY"
-    type="video/mp4"
-  />
+  <source [src]="selectedMovie.url" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
+}
 
 <!-- overflow-hidden -->
 
