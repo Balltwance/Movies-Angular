@@ -1,11 +1,12 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common'; //
 import { SwiperComponent } from '../components/swiper/swiper.component';
+import { ButtonComponent } from '../components/button/button.component';
 
 @Component({
   selector: 'app-home',
   standalone: true, //
-  imports: [CommonModule, SwiperComponent], //
+  imports: [CommonModule, SwiperComponent, ButtonComponent], //
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
@@ -18,9 +19,9 @@ export class HomeComponent implements OnInit {
     this.isScrolled = window.scrollY > 100;
   }
   public sections = [
-    { title: 'ที่ Netflix เท่านั้น' },
-    { title: 'กำลังฮิต' },
-    { title: 'มาใหม่ล่าสุด' },
+    { title: 'เรื่องต่อไปที่คูนอาจชอบ' },
+    { title: 'ใหม่ล่าสุด' },
+    { title: 'ใครๆก็ชอบ' },
   ];
 
   // ngOnInit(): void {
@@ -83,7 +84,7 @@ export class HomeComponent implements OnInit {
   }
 
   getSwiperConfig(length: number) {
-    const slidesPerView = 5.5;
+    const slidesPerView = 6.5;
     let slidesPerGroup = 6;
 
     if (length < slidesPerView * 2) {
@@ -93,17 +94,9 @@ export class HomeComponent implements OnInit {
     return {
       slidesPerView,
       slidesPerGroup,
-      spaceBetween: 16,
-      loop: true,
-      centeredSlides: true,
-      navigation: {
-        nextEl: '.btn-next',
-        prevEl: '.btn-prev',
-      },
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
+      spaceBetween: 7,
+      loop: false,
+      // centeredSlides: true,
     };
   }
 

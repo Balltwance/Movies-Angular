@@ -37,7 +37,7 @@ export class SwiperComponent implements AfterViewInit, OnChanges, OnDestroy {
   @ViewChild('swiperContainer') public swiperContainer!: ElementRef;
   @ViewChild('btnNext', { static: false }) btnNext!: ElementRef;
   @ViewChild('btnPrev', { static: false }) btnPrev!: ElementRef;
-
+  @Input() swiperId: string = crypto.randomUUID();
   private swiper?: Swiper;
   private onStableSub?: Subscription;
 
@@ -63,6 +63,14 @@ export class SwiperComponent implements AfterViewInit, OnChanges, OnDestroy {
 
     const mergedConfig: SwiperOptions = {
       ...this.config,
+      navigation: {
+        nextEl: `.btn-next-${this.swiperId}`,
+        prevEl: `.btn-prev-${this.swiperId}`,
+      },
+      pagination: {
+        el: `.swiper-pagination-${this.swiperId}`,
+        clickable: true,
+      },
     };
 
     this.swiper = new Swiper(this.swiperContainer.nativeElement, mergedConfig);
@@ -88,8 +96,8 @@ export class SwiperComponent implements AfterViewInit, OnChanges, OnDestroy {
     this.onStableSub?.unsubscribe();
   }
 
-  public trackByFn(index: number, item: any) {
-    return item?.id ?? index;
+  public trackByFn(index: number, item: any): string {
+    return `${item}-${index}`;
   }
 
   public slideNext(): void {
