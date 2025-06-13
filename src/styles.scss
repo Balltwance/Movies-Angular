@@ -33,6 +33,7 @@ body {
       /* รีเซ็ตสไตล์บางส่วน แต่ไม่ใช้ all: unset */
       display: inline-block !important;
     }
+    
 
     /* ปรับแก้การรีเซ็ตสไตล์ของ input, button, select, textarea */
     // input,
@@ -61,7 +62,7 @@ body {
 
     input {
       color: white !important;
-      caret-color: white;
+      caret-color: white !important;
     }
 
     .input-active {
