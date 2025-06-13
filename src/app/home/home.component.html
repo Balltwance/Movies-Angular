@@ -4,38 +4,54 @@
   ></div>
   <div>
     <div class="w-full h-[200px]"></div>
-    <div class="w-[700px] pl-16 pb-16">
-      <img
-        src="/assets/img/unicorntitle.webp"
-        alt="title"
-        class="w-[600px] mb-10"
-      />
+    <div class="flex flex-row justify-between relative">
+      <div class="w-[700px] pl-16 pb-16">
+        <div>
+          <img
+            src="/assets/img/unicorntitle.webp"
+            alt="title"
+            class="w-[600px] mb-10"
+          />
 
-      <p class="text-white text-2xl font-medium mb-10">
-        สันติ นักลงทุนไฟแรงใฝฝันที่ตะประสบความสำเร็จแบบถลมทลย
-        ด้วยใอเดียการทำธุกิจขนส่งพัสดุที่จะเขย่าวงการ
-        แต่บรรดาคู่แข่งก็พยายามทำทุกวิถีทางเพื่อครองตำแหน่งเจ้าตลาด
-      </p>
-      <div class="flex flex-row gap-5">
-        <app-button
-          [class]="
-            'bg-white py-0 !pl-4 pr-8 hover:!bg-gray-200 !text-black flex flex-row drop-shadow-[0_35px_35px_rgba(20,1,0,0.25)] font-bold '
-          "
-        >
-          <span class="material-icons-round text-6xl"> play_arrow </span>
-          <p class="text-2xl font-extrabold">เล่น</p>
-        </app-button>
+          <p class="text-white text-2xl font-medium mb-10">
+            สันติ นักลงทุนไฟแรงใฝฝันที่ตะประสบความสำเร็จแบบถลมทลย
+            ด้วยใอเดียการทำธุกิจขนส่งพัสดุที่จะเขย่าวงการ
+            แต่บรรดาคู่แข่งก็พยายามทำทุกวิถีทางเพื่อครองตำแหน่งเจ้าตลาด
+          </p>
+          <div class="flex flex-row gap-5">
+            <app-button
+              [class]="
+                'bg-white py-0 !pl-4 pr-8 hover:!bg-gray-200 !text-black flex flex-row drop-shadow-[0_35px_35px_rgba(20,1,0,0.25)] font-bold '
+              "
+            >
+              <span class="material-icons-round text-6xl"> play_arrow </span>
+              <p class="text-2xl font-extrabold">เล่น</p>
+            </app-button>
 
-        <app-button
-          [class]="
-            ' !bg-gray-500/50 hover:!bg-gray-700/50 !text-s flex flex-row drop-shadow-[0_35px_35px_rgba(20,1,0,0.25)] font-bold '
-          "
+            <app-button
+              [class]="
+                ' !bg-stone-500/90 hover:!bg-stone-700/70 !text-s flex flex-row drop-shadow-[0_35px_35px_rgba(20,1,0,0.25)] font-bold '
+              "
+            >
+              <span class="material-icons-outlined mr-4 text-5xl text-white">
+                info
+              </span>
+              <p class="text-2xl text-white">ข้อมูลเพิ่มเติม</p>
+            </app-button>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-row absolute bottom-10 right-0 items-center">
+        <span
+          class="material-icons-outlined text-white text-2xl border-[1px] border-stone-300 rounded-full px-3 py-2 hover:bg-white/20 transition duration-300 cursor-pointer"
         >
-          <span class="material-icons-outlined mr-4 text-5xl text-white">
-            info
-          </span>
-          <p class="text-2xl text-white">ข้อมูลเพิ่มเติม</p>
-        </app-button>
+          volume_up
+        </span>
+        <span
+          class="pl-4 pr-16 py-2 bg-stone-700/60 text-white text-xl border-l-[3px] ml-5"
+        >
+          16+
+        </span>
       </div>
     </div>
     <div
